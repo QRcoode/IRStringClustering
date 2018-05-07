@@ -7,4 +7,4 @@ To fatch the reviews from google play store, please use googlePlayReviews.js und
 cd path\google-play-scraper
 node googlePlayReviews
 ````
-The 
+NOTICE: If fatch the reviews data too many times, google might block your IP temporarily
