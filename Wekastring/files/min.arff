@@ -1,0 +1,29 @@
+@relation text_files_in_/research/mlstemming/datasets/reuters/top10categories/arffFiles-weka.filters.unsupervised.instance.Randomize-S42-weka.filters.supervised.instance.Resample-B0.0-S1-Z1.0
+
+@attribute contents string
+
+
+
+@data
+
+' SHAD FAVORS SHORTENING DISCLOSURE PERIOD Securities and Exchange'
+' FIRST MICHIGAN BANCORP <FMBC.O> 3RD QTR NET Shr 55 cts vs 48 cts Net'
+' BEGHIN-SAY INCREASES CAPITAL TO FINANCE EXPANSION French sugar group'
+' CCR VIDEO CORP <CCCR> 1ST QTR NOV 30 NET Shr profit two cts vs loss '
+' U.K. MONEY MARKET GIVEN 728 MLN STG EARLY HELP The Bank of England '
+' BURNHAM AMERICAN PROPOERTIES <BAPYZ.O> 2ND QTR Qtr ended March 31 Net'
+' TDK GROUP NET UP 0.5 PCT IN THREE MONTHS TO AUGUST Third quarter ended'
+' FERRO CORP <FOE> SETS JOINT VENTURE Ferro Corp said it has formed a'
+' MANUFACTURERS <MHC> PUTS BRAZIL ON NON-ACCRUAL Manufacturers Hanover'
+' SANTA FE ENERGY PARTNERS LP <SFP> QTLY PAYOUT Qtly cash distribution'
+' HUDSON VALLEY PATROL AGREES TO BUY GUARD FIRM Hudson Valley Patrol Inc'
+' TRANZONIC COS <TNZ> SETS QUARTERLY Qtly div 11 cts vs 11 cts prior Pay'
+' MINNTECH CORP <MNTX.O> 4TH QTR MAR 31 NET Opr shr nil vs seven cts Opr'
+' INITIALS PLUS <IINC> SEES SHARP SALES INCREASE Initials Plus said it'
+' TARO VIT INDUSTRIES LTD <TAROF> YEAR LOSS Shr loss eight cts vs profit'
+' U.K. TO SUPPLY WHEAT TO CHINA UNDER AID PROGRAM The U.K. Will ship'
+' ARMTEK <ARM> SELLS TIRE, TRUCK TIRE BUSINESS Armtek Corp, formerly'
+' COLONIAL BANCGROUP <CLBGA> BUYS FARMERS Colonial BancGroup said it'
+' GORDON JEWELRY <GOR> COMPLETES SALE OF UNIT Gordon Jewelry Corp said'
+' ATLAS YELLOWKNIFE <AY.TO> SIX MTHS LOSS Period ended March 31 Shr'
+' PHILIP CROSBY ASSOCIATES INC <PCRO> 4TH QTR NET Shr three cts vs 18'
