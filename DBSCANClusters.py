@@ -44,31 +44,31 @@ for x in content:
 labelSet = set()
 
 X = StandardScaler().fit_transform(fullLines)
-db = DBSCAN(eps=1.9, min_samples=2).fit(fullLines)
+db = DBSCAN(eps=7, min_samples=1).fit(fullLines)
 core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
 core_samples_mask[db.core_sample_indices_] = True
 labels = db.labels_
 
 # labless = []
-for l in labels:
-	labelSet.add(l)
+# for l in labels:
+# 	labelSet.add(l)
 	
-print(len(labelSet))
+# print(len(labelSet))
 
 
-# with open('./files/merged_issues_reviews.csv','r',encoding='utf-8') as csvinput:
-#     with open('./files/DBSCAN_result.csv', 'w',encoding='utf-8') as csvoutput:
-#         writer = csv.writer(csvoutput, lineterminator='\n')
-#         reader = csv.reader(csvinput)
-#         all = []
-#         i = 0
-#         for row in reader:
-#             temp_row = []
-#             temp_row.append(row[0])
-#             temp_row.append(row[2])
-#             temp_row.append(str(labels[i]))
-#             all.append(temp_row)
-#             i += 1
-#         writer.writerows(all)
+with open('./files/merged_issues_reviews.csv','r',encoding='utf-8') as csvinput:
+    with open('./files/DBSCAN_result.csv', 'w',encoding='utf-8') as csvoutput:
+        writer = csv.writer(csvoutput, lineterminator='\n')
+        reader = csv.reader(csvinput)
+        all = []
+        i = 0
+        for row in reader:
+            temp_row = []
+            temp_row.append(row[0])
+            temp_row.append(row[2])
+            temp_row.append(str(labels[i]))
+            all.append(temp_row)
+            i += 1
+        writer.writerows(all)
 
 print("done")

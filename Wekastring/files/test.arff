@@ -1,0 +1,9 @@
+@relation text_files_in_/research/mlstemming/datasets/reuters/top10categories/arffFiles-weka.filters.unsupervised.instance.Randomize-S42-weka.filters.supervised.instance.Resample-B0.0-S1-Z1.0 
+@attribute contents string 
+
+@data
+
+'This is a Test. Test is important.'
+'This is Oppsi doopsi! Integration is very good'
+'This Test is Test! So much word Test Test'
+'This Sould be another Test! Again Test Test'
