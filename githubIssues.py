@@ -22,7 +22,7 @@ REPO = 'k9mail/k-9'  # format is username/repo CHANGE THIS TO SWITCH REPO
 
 #Requires change if not looking for closed issues (for open issues only, the '?state=closed' can be omitted)
 ISSUES_FOR_REPO_URL = 'https://api.github.com/repos/%s/issues?state=closed' % REPO
-ISSUE_TEXT_NAME = '%s-issues.csv' % (REPO.replace('/', '-')) #decides the name of the file
+ISSUE_TEXT_NAME = './files/%s-issues.csv' % (REPO.replace('/', '-')) #decides the name of the file
 AUTH = (GITHUB_USER, GITHUB_PASSWORD)
 
 txtout = open('data.json', 'w')
@@ -45,7 +45,7 @@ def write_issues(response):
 
                 # checks if the issue has been labelled by one of the following
                 # this can be changed depending on what labels are wanted
-                if labelName[:3] == "bug" or labelName[:7] == "feature" or labelName == "crash":
+                if labelName[:3] == "bug" or labelName[:11] == "enhancement" or labelName == "invalid":
                     containsLabel = True
                     labelText += labelName + '+' # Only writes the labels we care about
 
@@ -88,8 +88,18 @@ def process_text(bodyText):
     .replace("<!--Have you searched for similar issues? There is a lot of feedbacks and bug reports we have received "
              "and closed as duplicate.Before submitting this issue, please visit our wiki for common ones: . By using "
              "search engines along with GitHub search function, you would be able to find duplicates more efficiently."
-             "For more, check out our community site: . -->", "")
-    # All of the above text to replace are parts of issue reports that are commonly found in the beginning of the issue
+             "For more, check out our community site: . -->", "")\
+    .replace("Please search to check for an existing issue (including closed issues, for which the fix may not have yet been released) before opening a new issue: https://github.com/k9mail/k-9/issues?q=is%3Aissue", "")\
+	.replace("### Expected behavior", "")\
+	.replace("Tell us what should happen", "")\
+	.replace("### Actual behavior", "")\
+	.replace("Tell us what happens instead", "")\
+	.replace("### Steps to reproduce", "")\
+	.replace("### Environment", "")\
+	.replace("K-9 Mail version:", "")\
+	.replace("Android version:", "")\
+	.replace("Account type (IMAP, POP3, WebDAV/Exchange):", "")
+	# All of the above text to replace are parts of issue reports that are commonly found in the beginning of the issue
     # report. To understand what I mean, go to https://github.com/brave/browser-laptop/issues/new to see the default
     # template already placed in the box (make sure you are logged in GitHub).
 
