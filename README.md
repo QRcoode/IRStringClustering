@@ -30,6 +30,7 @@ python kmeansClusters_v2.py
 
 ### Word2vec + DBSCAN
 use Java to run "Wekastring\src\weka\String2Vector.java"
+
 The generated arff files are in "\Wekastring\files".
 ````
 python csv2Arff.py
