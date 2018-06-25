@@ -8,3 +8,32 @@ cd path\google-play-scraper
 node googlePlayReviews
 ````
 NOTICE: If fatch the reviews data too many times, google might block your IP temporarily
+
+### Step 2
+To fatch the issues from github, please use githubIssues.py
+````
+cd path
+python githubIssues.py
+````
+
+### K-means clustring method I
+````
+cd path
+python kmeansClusters.py
+````
+
+### K-means clustring method II
+````
+cd path
+python kmeansClusters_v2.py
+````
+
+### Word2vec + DBSCAN
+use Java to run "Wekastring\src\weka\String2Vector.java"
+The generated arff files are in "\Wekastring\files".
+````
+python csv2Arff.py
+python DBSCANClusters.py
+````
+
+All the CSV files are included in "files" folder
