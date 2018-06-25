@@ -13,17 +13,6 @@ from sklearn.datasets.samples_generator import make_blobs
 from sklearn.preprocessing import StandardScaler
 
 
-
-'''
-This code is responsible for organising the data gathered using the google-play scraper and the GitHub Issues scraper 
-into clusters. Ensure that you have used the web scrapers, 'githubIssues.py' and 'googlePlayReviews.js', or other
-web scrapers, and that you have transferred the appropriate files to the same directory as 'kmeansClusters.py' (this).
-
-@param ISSUES_FILE = File containing all of the issue text retrieved from the GitHub repo.
-@param REVIEW_FILE = File containing all of the review text retrieved from the Google Play Store.
-@return CLUSTERS_FILE = File containing all of the issues and reviews, with their cluster numbers.
-'''
-
 # Change these names if desired
 ISSUES_FILE = "./files/vectors.csv"
 
