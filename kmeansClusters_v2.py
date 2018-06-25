@@ -6,6 +6,10 @@ import csv
 import os.path
 import sys
 
+import csv
+import numpy as np
+import matplotlib.pyplot as plt
+
 '''
 This code is responsible for organising the data gathered using the google-play scraper and the GitHub Issues scraper 
 into clusters. Ensure that you have used the web scrapers, 'githubIssues.py' and 'googlePlayReviews.js', or other
@@ -18,26 +22,6 @@ web scrapers, and that you have transferred the appropriate files to the same di
 # Change these names if desired
 ISSUES_AND_REVIEW_FILE = "./files/merged.csv"
 CLUSTERS_FILE = "./files/clusters_v2.csv"
-
-def test():
-    dataset = loadDataset()    
-    print("%d documents" % len(dataset))
-    X,vectorizer = transform(dataset,n_features=500)
-    true_ks = []
-    scores = []
-    for i in range(3,200,1):        
-        score = train(X,vectorizer,true_k=i)/len(dataset)
-        #print (i,score)
-        true_ks.append(i)
-        scores.append(score)
-    plt.figure(figsize=(8,4))
-    plt.plot(true_ks,scores,label="error",color="red",linewidth=1)
-    plt.xlabel("n_features")
-    plt.ylabel("error")
-    plt.legend()
-    plt.show()
-#use test() to find out the best number of k
-
 
 with open(ISSUES_AND_REVIEW_FILE, "r") as f:
     content = f.readlines()
@@ -97,3 +81,39 @@ with open(CLUSTERS_FILE, "w", encoding='utf-8') as f:
         writer.writerow((fullLines[x], prediction[0], issueLabels[x]))
 
 print("Complete.") # Console status messages
+
+#===============================================================
+def loadDataset():
+    f = open('clusters_only_full.csv','r', encoding='utf-8')
+    dataset = []
+    for line in f.readlines():
+        dataset.append(line)
+    f.close()
+    return dataset
+
+def transform(dataset,n_features=1000):
+    vectorizer = TfidfVectorizer(max_df=0.5, max_features=n_features, min_df=2,use_idf=True)
+    X = vectorizer.fit_transform(dataset)
+    return X,vectorizer
+def train(X,vectorizer,true_k=10,showLable = False):
+    km = KMeans(n_clusters=true_k, init='k-means++', max_iter=300, n_init=1,
+                    verbose=False)
+    km.fit(X)
+    return km.inertia_ 
+def test():
+    dataset = loadDataset()    
+    print("%d documents" % len(dataset))
+    X,vectorizer = transform(dataset,n_features=500)
+    true_ks = []
+    scores = []
+    for i in range(3,200,1):        
+        score = train(X,vectorizer,true_k=i)/len(dataset)
+        true_ks.append(i)
+        scores.append(score)
+    plt.figure(figsize=(8,4))
+    plt.plot(true_ks,scores,label="error",color="red",linewidth=1)
+    plt.xlabel("n_features")
+    plt.ylabel("error")
+    plt.legend()
+    plt.show()
+#use test() to find out the best number of k
